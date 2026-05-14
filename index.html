@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connectra — Brand Guidelines</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal-dark:   #0F2D5E;
+    --teal:        #2563EB;
+    --teal-light:  #BFDBFE;
+    --teal-pale:   #EFF6FF;
+    --blue:        #1D4ED8;
+    --blue-light:  #93C5FD;
+    --blue-pale:   #DBEAFE;
+    --sand:        #A8724A;
+    --sand-light:  #EDD8BE;
+    --sand-pale:   #FAF1E8;
+    --cream:       #FFFFFF;
+    --white:       #FFFFFF;
+    --grey-400:    #888888;
+    --grey-700:    #555555;
+    --black:       #111111;
+    --sidebar-w:   220px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--cream);
+    color: #111111;
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: var(--sidebar-w);
+    height: 100vh;
+    background: var(--teal-dark);
+    display: flex;
+    flex-direction: column;
+    padding: 32px 0;
+    z-index: 100;
+    overflow-y: auto;
+  }
+
+  .sidebar-logo {
+    padding: 0 24px 28px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    margin-bottom: 20px;
+  }
+
+  .sidebar-logo .wordmark {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  .sidebar-logo .dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    background: var(--teal);
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  .sidebar-logo .sub {
+    font-size: 10px;
+    color: rgba(255,255,255,0.45);
+    margin-top: 4px;
+  }
+
+  .sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 24px;
+    text-decoration: none;
+    color: rgba(255,255,255,0.45);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.15s, background 0.15s;
+    border-left: 2px solid transparent;
+  }
+
+  .sidebar a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+  .sidebar a.active { color: #fff; border-left-color: var(--teal); background: rgba(255,255,255,0.06); }
+  .sidebar a .num { font-size: 10px; color: rgba(255,255,255,0.25); min-width: 18px; }
+
+  /* ── MAIN ── */
+  main { margin-left: var(--sidebar-w); flex: 1; }
+
+  /* ── SECTIONS ── */
+  .section {
+    min-height: 100vh;
+    padding: 80px 80px;
+    border-bottom: 2px solid #BFDBFE;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--grey-400);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: #93C5FD;
+  }
+
+  .section-title {
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #0F2D5E;
+    margin-bottom: 28px;
+    max-width: 700px;
+  }
+
+  .section-body {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--grey-700);
+    max-width: 580px;
+    margin-bottom: 40px;
+  }
+
+  /* ── WELCOME ── */
+  #welcome {
+    background: var(--teal-dark);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    justify-content: flex-end;
+    padding-bottom: 80px;
+  }
+
+  #welcome .section-title { color: #fff; }
+  #welcome .section-body { color: rgba(255,255,255,0.65); }
+  #welcome .section-label { color: rgba(255,255,255,0.5); }
+  #welcome .section-label::after { background: #93C5FD; }
+
+  .welcome-bg {
+    position: absolute;
+    top: 0; right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba(37,99,235,0.12) 100%);
+    pointer-events: none;
+  }
+
+  .teal-accent { color: var(--teal); }
+
+  /* ── THREE CONNECTIONS ── */
+  .connection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .connection-card {
+    padding: 36px 28px;
+    border: 1.5px solid #BFDBFE;
+    background: #EFF6FF;
+  }
+
+  .connection-card .c-num {
+    font-size: 40px;
+    font-weight: 900;
+    color: #BFDBFE;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .connection-card .c-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0F2D5E;
+    margin-bottom: 8px;
+  }
+
+  .connection-card .c-body {
+    font-size: 13px;
+    color: var(--grey-700);
+    line-height: 1.6;
+  }
+
+  .connection-card .c-broken {
+    font-size: 11px;
+    color: var(--teal);
+    margin-top: 10px;
+    font-weight: 500;
+  }
+
+  /* ── THREE PILLARS ── */
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .pillar-card {
+    padding: 32px 24px;
+    border: 1.5px solid;
+  }
+
+  .pillar-card.p-teal { border-color: #93C5FD; background: #EFF6FF; }
+  .pillar-card.p-blue { border-color: #2563EB; background: #DBEAFE; }
+  .pillar-card.p-sand { border-color: #A8724A; background: #FAF1E8; }
+
+  .pillar-card .p-header {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #0F2D5E;
+  }
+
+  .pillar-card.p-blue .p-header { color: #0F2D5E; }
+  .pillar-card.p-sand .p-header { color: #301808; }
+
+  .pillar-card ul { list-style: none; }
+  .pillar-card li {
+    font-size: 12px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    color: var(--grey-700);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .pillar-card li::before { content: '—'; opacity: 0.4; }
+
+  /* ── VOICE ── */
+  .register-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .register-card {
+    padding: 28px;
+    border: 1.5px solid #BFDBFE;
+    background: #EFF6FF;
+  }
+
+  .register-card .reg-title {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: #0F2D5E; margin-bottom: 10px;
+  }
+
+  .register-card .reg-in { font-size: 12px; color: #1a7a45; margin-bottom: 6px; }
+  .register-card .reg-out { font-size: 12px; color: #b84040; }
+
+  .phrase-list {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px;
+  }
+
+  .phrase-tag {
+    background: #EFF6FF;
+    border: 1.5px solid #93C5FD;
+    border-radius: 2px;
+    padding: 8px 14px;
+    font-size: 12px; font-weight: 500;
+    color: #0F2D5E;
+  }
+
+  /* ── LOGO ── */
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px; margin-top: 48px;
+  }
+
+  .logo-card {
+    padding: 60px 40px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 16px;
+    border: 1.5px solid #BFDBFE;
+    min-height: 220px;
+  }
+
+  .logo-card.l-cream { background: #EFF6FF; }
+  .logo-card.l-white { background: #FFFFFF; }
+  .logo-card.l-teal { background: #0F2D5E; }
+  .logo-card.l-pale { background: #DBEAFE; }
+
+  .logo-placeholder {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 800; letter-spacing: -0.02em;
+  }
+
+  .logo-placeholder .dot-logo {
+    width: 10px; height: 10px;
+    background: var(--teal);
+    border-radius: 50%;
+  }
+
+  .logo-label {
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--grey-400);
+  }
+
+  /* ── COLOUR ── */
+  .colour-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2px; margin-top: 48px;
+  }
+
+  .swatch {
+    height: 180px;
+    display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 18px;
+    border: 1.5px solid rgba(0,0,0,0.08);
+  }
+
+  .swatch-name { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+  .swatch-hex { font-size: 11px; opacity: 0.65; font-family: 'Courier New', monospace; }
+  .swatch-note { font-size: 11px; opacity: 0.5; margin-top: 2px; }
+
+  .s-teal-dark { background: #0F2D5E; color: #fff; }
+  .s-teal { background: #2563EB; color: #fff; }
+  .s-teal-light { background: #BFDBFE; color: #0F2D5E; }
+  .s-blue { background: #1D4ED8; color: #fff; }
+  .s-blue-light { background: #93C5FD; color: #0F2D5E; }
+  .s-sand { background: #A8724A; color: #fff; }
+  .s-sand-light { background: #EDD8BE; color: #301808; }
+  .s-cream { background: #F3F3EC; color: #555; border: 1.5px solid #ddd !important; }
+
+  /* ── TYPOGRAPHY ── */
+  .type-specimen {
+    margin-top: 48px;
+    border-top: 1.5px solid #BFDBFE;
+  }
+
+  .type-row {
+    display: flex; align-items: baseline; gap: 32px;
+    padding: 24px 0;
+    border-bottom: 1px solid #DBEAFE;
+  }
+
+  .type-meta { min-width: 160px; flex-shrink: 0; }
+  .type-meta .label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--grey-400); }
+  .type-meta .spec { font-size: 11px; color: var(--grey-400); margin-top: 4px; }
+
+  /* ── IMAGERY / FRAMEWORK ── */
+  .framework-visual {
+    margin-top: 48px;
+    background: #EFF6FF;
+    border: 1.5px solid #BFDBFE;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .fw-root {
+    background: var(--teal-dark);
+    color: #fff;
+    border-radius: 6px;
+    padding: 8px 24px;
+    font-size: 13px;
+    font-weight: 600;
+    position: relative;
+  }
+
+  .fw-root::after {
+    content: '';
+    position: absolute;
+    bottom: -20px; left: 50%;
+    transform: translateX(-50%);
+    width: 1.5px; height: 20px;
+    background: #B0B8B0;
+  }
+
+  .fw-branches {
+    display: flex; gap: 0; margin-top: 20px;
+  }
+
+  .fw-branch {
+    display: flex; flex-direction: column; align-items: center;
+    width: 200px;
+  }
+
+  .fw-branch-header {
+    border-radius: 6px;
+    padding: 6px 18px;
+    font-size: 13px; font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .fw-branch.b1 .fw-branch-header { background: var(--teal-light); border: 1.5px solid var(--teal); color: #113030; }
+  .fw-branch.b2 .fw-branch-header { background: var(--blue-light); border: 1.5px solid var(--blue); color: #0F1E38; }
+  .fw-branch.b3 .fw-branch-header { background: var(--sand-light); border: 1.5px solid var(--sand); color: #301808; }
+
+  .fw-items { display: flex; flex-direction: column; gap: 5px; align-items: center; }
+
+  .fw-item {
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 11px; font-weight: 500;
+    text-align: center; min-width: 140px;
+  }
+
+  .fw-branch.b1 .fw-item { background: var(--teal-pale); border: 1px solid #8ECDC0; color: #113030; }
+  .fw-branch.b2 .fw-item { background: var(--blue-pale); border: 1px solid #8AAED0; color: #0F1E38; }
+  .fw-branch.b3 .fw-item { background: var(--sand-pale); border: 1px solid #D0A478; color: #301808; }
+
+  /* ── PRODUCT LANGUAGE ── */
+  .term-table {
+    width: 100%; border-collapse: collapse;
+    margin-top: 32px; font-size: 13px;
+  }
+
+  .term-table th {
+    text-align: left; font-size: 11px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--grey-400);
+    font-weight: 600; padding: 12px 16px;
+    border-bottom: 1.5px solid #BFDBFE;
+  }
+
+  .term-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #DBEAFE;
+    color: var(--grey-700); vertical-align: top;
+  }
+
+  .term-table td:first-child { color: #0F2D5E; font-weight: 500; }
+  .term-use { color: #2e7d5c !important; }
+  .term-avoid { color: #b84040 !important; }
+
+  /* ── DO / DON'T ── */
+  .dodont-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 48px; }
+  .dodont-col { border: 1.5px solid #BFDBFE; background: #EFF6FF; }
+  .dodont-header { padding: 18px 24px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid #BFDBFE; }
+  .dodont-header.do { color: #1a7a45; }
+  .dodont-header.dont { color: #b84040; }
+  .dodont-item { padding: 14px 24px; font-size: 13px; color: var(--grey-700); border-bottom: 1px solid #DBEAFE; line-height: 1.5; }
+  .dodont-col.do-col .marker { color: #1a7a45; margin-right: 8px; }
+  .dodont-col.dont-col .marker { color: #b84040; margin-right: 8px; }
+
+  /* ── SIGN-OFF ── */
+  #signoff { background: #0F2D5E; }
+  #signoff .section-title { color: #fff; }
+  #signoff .section-body { color: rgba(255,255,255,0.55); }
+  #signoff .section-label { color: rgba(255,255,255,0.4); }
+  #signoff .section-label::after { background: var(--teal); }
+
+  .pending-list { margin-top: 32px; border: 1px solid rgba(255,255,255,0.12); }
+  .pending-item { display: flex; align-items: flex-start; gap: 16px; padding: 14px 22px; border-bottom: 1px solid rgba(255,255,255,0.07); font-size: 13px; }
+  .status { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; flex-shrink: 0; margin-top: 1px; }
+  .status-pending { background: rgba(168,114,74,0.3); color: #EDD8BE; }
+  .status-done { background: rgba(37,99,235,0.3); color: var(--teal-light); }
+  .item-text { color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+  .footer-line {
+    margin-top: 40px; font-size: 11px; color: rgba(255,255,255,0.3);
+    display: flex; justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── SIDEBAR ── -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="wordmark"><span class="dot"></span>Connectra</div>
+    <div class="sub">Brand Guidelines · 2026</div>
+  </div>
+  <nav>
+    <a href="#welcome"><span class="num">01</span> Welcome</a>
+    <a href="#thebrand"><span class="num">02</span> The Brand</a>
+    <a href="#voice"><span class="num">03</span> Voice & Tone</a>
+    <a href="#product"><span class="num">04</span> Product Language</a>
+    <a href="#logo"><span class="num">05</span> Logo</a>
+    <a href="#colour"><span class="num">06</span> Colour</a>
+    <a href="#typography"><span class="num">07</span> Typography</a>
+    <a href="#imagery"><span class="num">08</span> Imagery</a>
+    <a href="#pillars"><span class="num">09</span> Content Pillars</a>
+    <a href="#do"><span class="num">10</span> Do</a>
+    <a href="#dont"><span class="num">11</span> Don't</a>
+    <a href="#signoff"><span class="num">12</span> Sign-off</a>
+  </nav>
+</aside>
+
+<main>
+
+<!-- 01 WELCOME -->
+<section class="section" id="welcome">
+  <div class="welcome-bg"></div>
+  <div class="section-label"><span class="num">01</span> Welcome</div>
+  <h1 class="section-title">Connecting every<br>dot that<br><span class="teal-accent">matters.</span></h1>
+  <p class="section-body">This document defines the visual identity, voice, and content conventions for Connectra — the platform connecting prosthetic and wheelchair users with their clinics, devices, and community.</p>
+  <p class="section-body" style="font-size:13px; margin-top:-20px;">Built by Agathe @ Modjo · May 2026</p>
+</section>
+
+<!-- 02 THE BRAND -->
+<section class="section" id="thebrand">
+  <div class="section-label"><span class="num">02</span> The Brand</div>
+  <h2 class="section-title">Three broken<br>connections.</h2>
+  <p class="section-body">The device was never the problem. Connectra closes the three connections that healthcare forgot to build — patient to clinic, patient to device, patient to community.</p>
+
+  <div class="connection-grid">
+    <div class="connection-card">
+      <div class="c-num">01</div>
+      <div class="c-title">Patient ↔ Clinic</div>
+      <div class="c-body">Visit notes, adjustment history, questions to ask, prosthetist feedback, remote check-ins. The clinical relationship doesn't end at the appointment.</div>
+      <div class="c-broken">Your clinic pillar</div>
+    </div>
+    <div class="connection-card">
+      <div class="c-num">02</div>
+      <div class="c-title">Patient ↔ Device</div>
+      <div class="c-body">Component wear, liner condition, suspension checks, software versions, usage patterns. The device tells a story — Connectra captures it.</div>
+      <div class="c-broken">Your device pillar</div>
+    </div>
+    <div class="connection-card">
+      <div class="c-num">03</div>
+      <div class="c-title">Patient ↔ Community</div>
+      <div class="c-body">Peer advice, caregiver updates, shared progress, outcome data. Nobody has built for wheelchair users the way Strava built for runners. Until now.</div>
+      <div class="c-broken">Your body pillar</div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 VOICE & TONE -->
+<section class="section" id="voice">
+  <div class="section-label"><span class="num">03</span> Voice & Tone</div>
+  <h2 class="section-title">Marina is the<br>face — not<br>the product.</h2>
+  <p class="section-body">Three registers. Each post lives in one. Clinical-restrained for credibility, Personal-direct for connection, Systems-operator for scale. Never blend them.</p>
+
+  <div class="register-grid">
+    <div class="register-card">
+      <div class="reg-title">🏥 Clinical-restrained</div>
+      <div class="reg-in">In: clinical credibility, patient outcomes, device data, prosthetic expertise</div>
+      <div class="reg-out">Out: patient content without consent, clinic names without green-light, stats without Marina sign-off</div>
+    </div>
+    <div class="register-card">
+      <div class="reg-title">💬 Personal-direct</div>
+      <div class="reg-in">In: founder story, Berkeley, Armenia, niche-without-apology, patience-as-identity</div>
+      <div class="reg-out">Out: "Hey my name is X" openers, self-promotion framing, Marina as the product</div>
+    </div>
+    <div class="register-card">
+      <div class="reg-title">🔧 Systems-operator</div>
+      <div class="reg-in">In: two-sided market mechanics, growing right not fast, ecosystem thinking, trust as strategy</div>
+      <div class="reg-out">Out: tech-bro language, growth hacking framing, speed-as-value</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 48px;">
+    <div class="section-label" style="margin-bottom: 16px;">Signature moves</div>
+    <div class="phrase-list">
+      <div class="phrase-tag">If-then causality</div>
+      <div class="phrase-tag">Niche-without-apology</div>
+      <div class="phrase-tag">Patience-as-identity</div>
+      <div class="phrase-tag">"We're connecting all the dots together."</div>
+      <div class="phrase-tag">Mission with mechanism</div>
+      <div class="phrase-tag">Trust is the only real growth strategy</div>
+      <div class="phrase-tag">Growing right, not fast</div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 PRODUCT LANGUAGE -->
+<section class="section" id="product">
+  <div class="section-label"><span class="num">04</span> Product Language</div>
+  <h2 class="section-title">Name it<br>precisely.</h2>
+  <p class="section-body">How Connectra names its platform, audience, and mission. These terms are fixed — not stylistic choices.</p>
+
+  <table class="term-table">
+    <thead>
+      <tr>
+        <th>Context</th>
+        <th class="term-use">Use</th>
+        <th class="term-avoid">Avoid</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Brand name</td>
+        <td class="term-use">Connectra</td>
+        <td class="term-avoid">connectra (lowercase) · CONNECTRA</td>
+      </tr>
+      <tr>
+        <td>Audience — primary</td>
+        <td class="term-use">Prosthetic users · wheelchair users · patients</td>
+        <td class="term-avoid">Amputees (avoid as sole descriptor) · disabled people</td>
+      </tr>
+      <tr>
+        <td>Positioning</td>
+        <td class="term-use">Strava for wheelchair users — with the clinical layer</td>
+        <td class="term-avoid">Healthcare app · medical device · patient portal</td>
+      </tr>
+      <tr>
+        <td>Market frame</td>
+        <td class="term-use">Growing right, not fast · two-sided market</td>
+        <td class="term-avoid">Scaling fast · hockey stick · growth hacking</td>
+      </tr>
+      <tr>
+        <td>Core claim</td>
+        <td class="term-use">Connect your daily experience to your clinic, your device, and your community</td>
+        <td class="term-avoid">All-in-one platform · comprehensive solution</td>
+      </tr>
+      <tr>
+        <td>Closing phrase</td>
+        <td class="term-use">"We're connecting all the dots together." (play with it — don't robotize)</td>
+        <td class="term-avoid">Dots as fragmented sentences · robotic repetition</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 05 LOGO -->
+<section class="section" id="logo">
+  <div class="section-label"><span class="num">05</span> Logo</div>
+  <h2 class="section-title">⚠️ Logo files<br>pending from<br>Marina.</h2>
+  <p class="section-body">Logo SVG and transparent PNG are required from Marina/Georgi before production. Colour confirmed: Teal #4E9E8E dot mark + wordmark. Use placeholders below for layout reference only.</p>
+
+  <div class="logo-grid">
+    <div class="logo-card l-cream">
+      <div class="logo-placeholder" style="color: var(--teal-dark); font-size: 22px;">
+        <div class="dot-logo" style="width:12px;height:12px;background:var(--teal);border-radius:50%;"></div>
+        Connectra
+      </div>
+      <div class="logo-label">Light backgrounds — primary</div>
+    </div>
+    <div class="logo-card l-teal">
+      <div class="logo-placeholder" style="color: #fff; font-size: 22px;">
+        <div class="dot-logo" style="width:12px;height:12px;background:var(--teal);border-radius:50%;"></div>
+        Connectra
+      </div>
+      <div class="logo-label" style="color:rgba(255,255,255,0.5);">Dark backgrounds — reverse</div>
+    </div>
+    <div class="logo-card l-white">
+      <div class="logo-placeholder" style="color: var(--teal-dark); font-size: 22px;">
+        <div class="dot-logo" style="width:12px;height:12px;background:var(--teal);border-radius:50%;"></div>
+        Connectra
+      </div>
+      <div class="logo-label">White — transparent (⚠️ pending)</div>
+    </div>
+    <div class="logo-card l-pale">
+      <div class="logo-placeholder" style="color: var(--teal-dark); font-size: 22px;">
+        <div class="dot-logo" style="width:12px;height:12px;background:var(--teal);border-radius:50%;"></div>
+        Connectra
+      </div>
+      <div class="logo-label">Teal-pale — brand backgrounds</div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 COLOUR -->
+<section class="section" id="colour">
+  <div class="section-label"><span class="num">06</span> Colour</div>
+  <h2 class="section-title">Teal. Blue.<br>Sand. Cream.</h2>
+  <p class="section-body">Three branch colours — one per care pillar. Teal for body, blue-grey for clinic, warm sand for device. Cream off-white as the system background. ⚠️ Confirm final hex with Marina + Georgi before production.</p>
+
+  <div class="colour-grid">
+    <div class="swatch s-teal-dark">
+      <div class="swatch-name">Teal Dark</div>
+      <div class="swatch-hex">#1B3A3A</div>
+      <div class="swatch-note">Headers · primary UI</div>
+    </div>
+    <div class="swatch s-teal">
+      <div class="swatch-name">Teal</div>
+      <div class="swatch-hex">#4E9E8E</div>
+      <div class="swatch-note">Your body pillar · dot mark</div>
+    </div>
+    <div class="swatch s-teal-light">
+      <div class="swatch-name">Teal Light</div>
+      <div class="swatch-hex">#C6E8DF</div>
+      <div class="swatch-note">Body pillar headers</div>
+    </div>
+    <div class="swatch s-blue">
+      <div class="swatch-name">Blue Grey</div>
+      <div class="swatch-hex">#4E72A0</div>
+      <div class="swatch-note">Your clinic pillar</div>
+    </div>
+    <div class="swatch s-blue-light">
+      <div class="swatch-name">Blue Light</div>
+      <div class="swatch-hex">#C6D6EA</div>
+      <div class="swatch-note">Clinic pillar headers</div>
+    </div>
+    <div class="swatch s-sand">
+      <div class="swatch-name">Sand</div>
+      <div class="swatch-hex">#A8724A</div>
+      <div class="swatch-note">Your device pillar</div>
+    </div>
+    <div class="swatch s-sand-light">
+      <div class="swatch-name">Sand Light</div>
+      <div class="swatch-hex">#EDD8BE</div>
+      <div class="swatch-note">Device pillar headers</div>
+    </div>
+    <div class="swatch s-cream">
+      <div class="swatch-name">Cream</div>
+      <div class="swatch-hex">#F3F3EC</div>
+      <div class="swatch-note">System background</div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 TYPOGRAPHY -->
+<section class="section" id="typography">
+  <div class="section-label"><span class="num">07</span> Typography</div>
+  <h2 class="section-title">Warm.<br>Human.<br>Precise.</h2>
+  <p class="section-body">Inter — clean, modern, human. Same scale principles as XY.ai but warmer in application. ⚠️ Confirm typeface with Georgi's Canva/Figma setup before locking.</p>
+
+  <div class="type-specimen">
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="label">Display / H1</div>
+        <div class="spec">Bold · −2% tracking</div>
+      </div>
+      <div style="font-size:52px;font-weight:800;letter-spacing:-0.02em;line-height:1.05;color:var(--teal-dark);">Connecting the dots.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="label">H2</div>
+        <div class="spec">Bold · −1.5% tracking</div>
+      </div>
+      <div style="font-size:34px;font-weight:700;letter-spacing:-0.015em;color:var(--teal-dark);">Your body. Your clinic. Your device.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="label">H3</div>
+        <div class="spec">SemiBold · normal</div>
+      </div>
+      <div style="font-size:22px;font-weight:600;color:var(--teal-dark);">Growing right, not fast.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="label">Body</div>
+        <div class="spec">Regular · 1.7 leading</div>
+      </div>
+      <div style="font-size:16px;font-weight:400;line-height:1.7;color:var(--grey-700);max-width:480px;">Connectra connects prosthetic and wheelchair users with their clinics, devices, and community in one platform — built for the clinical layer that activity tracking always missed.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="label">Caption / Tag</div>
+        <div class="spec">Medium · +0.08em · uppercase</div>
+      </div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-400);">Daily log · Clinic prep · Device report · Peer advice</div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 IMAGERY -->
+<section class="section" id="imagery">
+  <div class="section-label"><span class="num">08</span> Imagery</div>
+  <h2 class="section-title">The framework<br>is the visual.</h2>
+  <p class="section-body">Connectra's primary visual is the 3-branch care framework — Your body, Your clinic, Your device. Use it on LinkedIn carousels, Instagram grids, and product onboarding. Photography is real + consent-led only.</p>
+
+  <div class="framework-visual">
+    <div class="fw-root"><span style="display:inline-block;width:7px;height:7px;background:#4E9E8E;border-radius:50%;margin-right:6px;vertical-align:middle;"></span>Prosthetic / wheelchair user</div>
+    <div class="fw-branches">
+      <div class="fw-branch b1">
+        <div class="fw-branch-header">Your body</div>
+        <div class="fw-items">
+          <div class="fw-item">Socket comfort AM</div>
+          <div class="fw-item">Activity level</div>
+          <div class="fw-item">Pain & pressure</div>
+          <div class="fw-item">Skin condition</div>
+          <div class="fw-item">Energy & mood</div>
+          <div class="fw-item">Falls or near-falls</div>
+        </div>
+      </div>
+      <div class="fw-branch b2">
+        <div class="fw-branch-header">Your clinic</div>
+        <div class="fw-items">
+          <div class="fw-item">Visit notes</div>
+          <div class="fw-item">Adjustment history</div>
+          <div class="fw-item">Questions to ask</div>
+          <div class="fw-item">Treatment goals</div>
+          <div class="fw-item">Remote check-in</div>
+          <div class="fw-item">Progress tracking</div>
+        </div>
+      </div>
+      <div class="fw-branch b3">
+        <div class="fw-branch-header">Your device</div>
+        <div class="fw-items">
+          <div class="fw-item">Component wear</div>
+          <div class="fw-item">Liner condition</div>
+          <div class="fw-item">Suspension check</div>
+          <div class="fw-item">Usage patterns</div>
+          <div class="fw-item">Upgrade timeline</div>
+          <div class="fw-item">Device performance</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 CONTENT PILLARS -->
+<section class="section" id="pillars">
+  <div class="section-label"><span class="num">09</span> Content Pillars</div>
+  <h2 class="section-title">7 pillars.<br>3 channels.<br>1 mission.</h2>
+  <p class="section-body">LinkedIn (Marina personal · 3 posts/week) + Instagram (Connectra company · 9-grid format). Agathe drafts → Alexy reviews → Marina approves. No exceptions.</p>
+
+  <div class="pillar-grid">
+    <div class="pillar-card p-teal">
+      <div class="p-header">🏥 Clinical education</div>
+      <ul>
+        <li>Socket fit, daily tracking</li>
+        <li>Evidence-based prosthetic care</li>
+        <li>What to ask your prosthetist</li>
+      </ul>
+    </div>
+    <div class="pillar-card p-blue">
+      <div class="p-header">🌐 Community & stories</div>
+      <ul>
+        <li>Patient stories (consent-led)</li>
+        <li>Peer advice & shared experience</li>
+        <li>Caregiver perspectives</li>
+      </ul>
+    </div>
+    <div class="pillar-card p-sand">
+      <div class="p-header">🔧 Device intelligence</div>
+      <ul>
+        <li>Component tracking</li>
+        <li>Manufacturer insights</li>
+        <li>Upgrade & maintenance</li>
+      </ul>
+    </div>
+    <div class="pillar-card p-teal">
+      <div class="p-header">💡 Founder & mission</div>
+      <ul>
+        <li>Berkeley SkyDeck journey</li>
+        <li>Armenia → platform</li>
+        <li>Why this problem, why now</li>
+      </ul>
+    </div>
+    <div class="pillar-card p-blue">
+      <div class="p-header">📊 Systems thinking</div>
+      <ul>
+        <li>Two-sided market mechanics</li>
+        <li>Growing right not fast</li>
+        <li>Trust as growth strategy</li>
+      </ul>
+    </div>
+    <div class="pillar-card p-sand">
+      <div class="p-header">🤝 Clinical partnerships</div>
+      <ul>
+        <li>Prosthetist workflow</li>
+        <li>Remote monitoring value</li>
+        <li>Clinic adoption stories</li>
+      </ul>
+    </div>
+    <div class="pillar-card p-teal" style="grid-column: span 1;">
+      <div class="p-header">✨ Activity & life</div>
+      <ul>
+        <li>Strava analogy content</li>
+        <li>Daily movement tracking</li>
+        <li>Life beyond the device</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 10 DO -->
+<section class="section" id="do">
+  <div class="section-label"><span class="num">10</span> Do</div>
+  <h2 class="section-title">What works.</h2>
+  <p class="section-body">On-brand patterns across voice, structure, and visual. Repeat these.</p>
+
+  <div class="dodont-grid">
+    <div class="dodont-col do-col">
+      <div class="dodont-header do">Voice</div>
+      <div class="dodont-item"><span class="marker">✓</span>Open with the patient's reality before Marina's perspective</div>
+      <div class="dodont-item"><span class="marker">✓</span>Use if-then causality — "If the device fits, the life opens up."</div>
+      <div class="dodont-item"><span class="marker">✓</span>Niche-without-apology: "It's niche. Yeah. And it's hard."</div>
+      <div class="dodont-item"><span class="marker">✓</span>Patience-as-identity: "I have enough patience to go this slow way."</div>
+      <div class="dodont-item"><span class="marker">✓</span>End on mission — not metrics, not CTA</div>
+      <div class="dodont-item"><span class="marker">✓</span>Play with "connecting the dots" — don't robotize it</div>
+    </div>
+    <div class="dodont-col do-col">
+      <div class="dodont-header do">Structure & Visual</div>
+      <div class="dodont-item"><span class="marker">✓</span>1–3 sentences per paragraph on LinkedIn</div>
+      <div class="dodont-item"><span class="marker">✓</span>Framework visual (3-branch) as LinkedIn carousel hero</div>
+      <div class="dodont-item"><span class="marker">✓</span>Dark background + ASCII art for Instagram grid posts</div>
+      <div class="dodont-item"><span class="marker">✓</span>Teal + cream as primary palette — warm, clinical, grounded</div>
+      <div class="dodont-item"><span class="marker">✓</span>One idea per post — no blending registers</div>
+      <div class="dodont-item"><span class="marker">✓</span>Patient stories always with explicit consent confirmed</div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 DON'T -->
+<section class="section" id="dont">
+  <div class="section-label"><span class="num">11</span> Don't</div>
+  <h2 class="section-title">What breaks<br>the brand.</h2>
+  <p class="section-body">These are immediate red flags — stop the draft and rewrite before it reaches Marina.</p>
+
+  <div class="dodont-grid">
+    <div class="dodont-col dont-col">
+      <div class="dodont-header dont">Voice</div>
+      <div class="dodont-item"><span class="marker">✕</span>"Hey my name is X" openers — never</div>
+      <div class="dodont-item"><span class="marker">✕</span>Patient content without confirmed consent</div>
+      <div class="dodont-item"><span class="marker">✕</span>Clinic names without Marina's green-light</div>
+      <div class="dodont-item"><span class="marker">✕</span>Stats without Marina sign-off</div>
+      <div class="dodont-item"><span class="marker">✕</span>Tech-bro language — "moonshot," "10x," "disruptive"</div>
+      <div class="dodont-item"><span class="marker">✕</span>Dots as fragmented sentences (feels robotic)</div>
+    </div>
+    <div class="dodont-col dont-col">
+      <div class="dodont-header dont">Framing & Visual</div>
+      <div class="dodont-item"><span class="marker">✕</span>Marina as the product — she's the face of the mission</div>
+      <div class="dodont-item"><span class="marker">✕</span>Self-promotion framing</div>
+      <div class="dodont-item"><span class="marker">✕</span>Speed-as-value ("grow fast," "scale quickly")</div>
+      <div class="dodont-item"><span class="marker">✕</span>Generic healthcare stock photography</div>
+      <div class="dodont-item"><span class="marker">✕</span>Mixing clinical + personal + systems in one post</div>
+      <div class="dodont-item"><span class="marker">✕</span>Logo or colours without Marina/Georgi confirmation</div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 SIGN-OFF -->
+<section class="section" id="signoff">
+  <div class="section-label"><span class="num">12</span> Sign-off</div>
+  <h2 class="section-title">Living<br>document.</h2>
+  <p class="section-body">Seeded by Agathe (Modjo) from Marina's calls, posts, and strategic docs. Items below require Marina/Georgi confirmation before production.</p>
+
+  <div class="pending-list">
+    <div class="pending-item">
+      <span class="status status-done">Done</span>
+      <div class="item-text">3-branch care framework visual (HTML + PDF + Google Drive)</div>
+    </div>
+    <div class="pending-item">
+      <span class="status status-done">Done</span>
+      <div class="item-text">May 2026 content calendar — 3 LinkedIn posts + Instagram 3-grid drafted</div>
+    </div>
+    <div class="pending-item">
+      <span class="status status-done">Done</span>
+      <div class="item-text">Voice rules, 7 content pillars, 3 registers locked in this guide</div>
+    </div>
+    <div class="pending-item">
+      <span class="status status-pending">Pending</span>
+      <div class="item-text">Logo SVG + transparent PNG from Marina</div>
+    </div>
+    <div class="pending-item">
+      <span class="status status-pending">Pending</span>
+      <div class="item-text">Final brand hex codes confirmed by Georgi (Canva/Figma)</div>
+    </div>
+    <div class="pending-item">
+      <span class="status status-pending">Pending</span>
+      <div class="item-text">Patient story with confirmed consent — for May 14 post visual</div>
+    </div>
+    <div class="pending-item">
+      <span class="status status-pending">Pending</span>
+      <div class="item-text">Georgi executing Instagram ASCII 3-grid design</div>
+    </div>
+    <div class="pending-item">
+      <span class="status status-pending">Pending</span>
+      <div class="item-text">Lock @connectra.live Instagram handle + Meta Business Manager</div>
+    </div>
+  </div>
+
+  <div class="footer-line">
+    <span>Connectra Brand Guidelines · Built by Agathe @ Modjo</span>
+    <span>Last updated: May 14, 2026</span>
+  </div>
+</section>
+
+</main>
+
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('.sidebar a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.sidebar a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
